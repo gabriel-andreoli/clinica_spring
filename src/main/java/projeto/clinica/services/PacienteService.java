@@ -1,5 +1,6 @@
 package projeto.clinica.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projeto.clinica.entities.Paciente;
@@ -27,7 +28,16 @@ public class PacienteService {
     return pacienteRepository.save(paciente);
   }
 
-//  public Paciente update(Paciente paciente, Long id){
-//    return pacienteRepository.
-//  }
+  public Paciente update(Paciente pacienteReq, Long id){
+    Paciente entidade = pacienteRepository.getReferenceById(id);
+    updateFunc(entidade, pacienteReq);
+    return pacienteRepository.save(entidade);
+  }
+
+  public void updateFunc(Paciente entidade, Paciente pacienteReq){
+    entidade.setNome(pacienteReq.getNome());
+    entidade.setEmail(pacienteReq.getEmail());
+    entidade.setSexo(pacienteReq.getSexo());
+  }
+
 }

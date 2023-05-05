@@ -32,9 +32,9 @@ public class PacienteResource {
     return ResponseEntity.ok().body(pacienteService.insert(paciente));
   }
 
-//  @PutMapping(value = "/{id}")
-//  public ResponseEntity<Paciente> update(RequestBody Paciente paciente, @PathVariable Long id){
-//
-//  }
+  @PutMapping(value = "/{id}")
+  public ResponseEntity<Paciente> update(@RequestBody Paciente pacienteReq, @PathVariable Long id){
+    return ResponseEntity.ok().body(pacienteService.update(pacienteReq, id));
+  }
 
 }
