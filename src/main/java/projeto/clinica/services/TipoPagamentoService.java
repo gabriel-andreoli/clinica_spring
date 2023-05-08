@@ -35,4 +35,8 @@ public class TipoPagamentoService {
   public void updateData(TipoPagamento objAtual, TipoPagamento tipoPagamentoNew){
     objAtual.setDescricao(tipoPagamentoNew.getDescricao());
   }
+
+  public void delete(Long id){
+    tipoPagamentoRepository.deleteById(id);
+  }
 }

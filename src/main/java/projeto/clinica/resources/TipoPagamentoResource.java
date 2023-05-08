@@ -37,5 +37,11 @@ public class TipoPagamentoResource {
     return ResponseEntity.ok().body(tipoPagamentoService.update(id, tipoPagamentoNew));
   }
 
+  @DeleteMapping(value = "/{id}")
+  public ResponseEntity<Void> delete(@PathVariable Long id){
+    tipoPagamentoService.delete(id);
+    return ResponseEntity.noContent().build();
+  }
+
 
 }
