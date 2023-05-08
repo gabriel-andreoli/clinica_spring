@@ -37,4 +37,10 @@ public class PacienteResource {
     return ResponseEntity.ok().body(pacienteService.update(pacienteReq, id));
   }
 
+  @DeleteMapping(value = "/{id}")
+  public ResponseEntity<Void> delete(@PathVariable Long id){
+    pacienteService.delete(id);
+    return ResponseEntity.noContent().build();
+  }
+
 }

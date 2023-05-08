@@ -40,4 +40,8 @@ public class PacienteService {
     entidade.setSexo(pacienteReq.getSexo());
   }
 
+  public void delete(Long id){
+    pacienteRepository.deleteById(id);
+  }
+
 }
