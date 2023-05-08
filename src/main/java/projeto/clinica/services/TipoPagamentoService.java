@@ -25,4 +25,14 @@ public class TipoPagamentoService {
   public TipoPagamento insert(TipoPagamento tipoPagamento){
     return tipoPagamentoRepository.save(tipoPagamento);
   }
+
+  public TipoPagamento update(Long id, TipoPagamento tipoPagamentoNew){
+    TipoPagamento objAtual = tipoPagamentoRepository.getReferenceById(id);
+    updateData(objAtual, tipoPagamentoNew);
+    return tipoPagamentoRepository.save(objAtual);
+  }
+
+  public void updateData(TipoPagamento objAtual, TipoPagamento tipoPagamentoNew){
+    objAtual.setDescricao(tipoPagamentoNew.getDescricao());
+  }
 }

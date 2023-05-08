@@ -1,5 +1,6 @@
 package projeto.clinica.resources;
 
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,11 @@ public class TipoPagamentoResource {
   public ResponseEntity<TipoPagamento> insert(@RequestBody TipoPagamento tipoPagamento){
     TipoPagamento obj = tipoPagamentoService.insert(tipoPagamento);
     return ResponseEntity.ok().body(obj);
+  }
+
+  @PutMapping(value = "/{id}")
+  public ResponseEntity<TipoPagamento> update(@PathVariable Long id, @RequestBody TipoPagamento tipoPagamentoNew){
+    return ResponseEntity.ok().body(tipoPagamentoService.update(id, tipoPagamentoNew));
   }
 
 
