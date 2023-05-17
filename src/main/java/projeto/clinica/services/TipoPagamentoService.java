@@ -3,6 +3,7 @@ package projeto.clinica.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projeto.clinica.entities.TipoPagamento;
+import projeto.clinica.entities.dto.TipoPagamentoDTO;
 import projeto.clinica.repositories.TipoPagamentoRepository;
 
 import java.util.List;
@@ -13,23 +14,23 @@ public class TipoPagamentoService {
   @Autowired
   private TipoPagamentoRepository tipoPagamentoRepository;
 
-  public List<TipoPagamento> findAll(){
-    return tipoPagamentoRepository.findAll();
+  public List<TipoPagamentoDTO> findAll(){
+    return tipoPagamentoRepository.findAll().stream().map(TipoPagamentoDTO::new).toList();
   }
 
-  public TipoPagamento findById(Long id){
+  public TipoPagamentoDTO findById(Long id){
     Optional<TipoPagamento> obj = tipoPagamentoRepository.findById(id);
-    return obj.get();
+    return new TipoPagamentoDTO(obj.get());
   }
 
-  public TipoPagamento insert(TipoPagamento tipoPagamento){
-    return tipoPagamentoRepository.save(tipoPagamento);
+  public TipoPagamentoDTO insert(TipoPagamento tipoPagamento){
+    return new TipoPagamentoDTO(tipoPagamentoRepository.save(tipoPagamento));
   }
 
-  public TipoPagamento update(Long id, TipoPagamento tipoPagamentoNew){
+  public TipoPagamentoDTO update(Long id, TipoPagamento tipoPagamentoNew){
     TipoPagamento objAtual = tipoPagamentoRepository.getReferenceById(id);
     updateData(objAtual, tipoPagamentoNew);
-    return tipoPagamentoRepository.save(objAtual);
+    return new TipoPagamentoDTO(tipoPagamentoRepository.save(objAtual));
   }
 
   public void updateData(TipoPagamento objAtual, TipoPagamento tipoPagamentoNew){

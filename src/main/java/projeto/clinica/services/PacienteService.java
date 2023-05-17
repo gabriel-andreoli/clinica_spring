@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projeto.clinica.entities.Paciente;
+import projeto.clinica.entities.dto.PacienteDTO;
 import projeto.clinica.repositories.PacienteRepository;
 
 import java.util.List;
@@ -15,23 +16,23 @@ public class PacienteService {
   @Autowired
   private PacienteRepository pacienteRepository;
 
-  public List<Paciente> findAll(){
-    return pacienteRepository.findAll();
+  public List<PacienteDTO> findAll(){
+    return pacienteRepository.findAll().stream().map(PacienteDTO::new).toList();
   }
 
-  public Paciente findById(Long id){
+  public PacienteDTO findById(Long id){
     Optional<Paciente> paciente = pacienteRepository.findById(id);
-    return paciente.get();
+    return new PacienteDTO(paciente.get());
   }
 
-  public Paciente insert(Paciente paciente){
-    return pacienteRepository.save(paciente);
+  public PacienteDTO insert(Paciente paciente){
+    return new PacienteDTO(pacienteRepository.save(paciente));
   }
 
-  public Paciente update(Paciente pacienteReq, Long id){
+  public PacienteDTO update(Paciente pacienteReq, Long id){
     Paciente entidade = pacienteRepository.getReferenceById(id);
     updateFunc(entidade, pacienteReq);
-    return pacienteRepository.save(entidade);
+    return new PacienteDTO(pacienteRepository.save(entidade));
   }
 
   public void updateFunc(Paciente entidade, Paciente pacienteReq){
