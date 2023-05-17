@@ -35,4 +35,9 @@ public class AreaAtuacaoController implements Serializable {
     return areaAtuacaoService.update(id, areaAtuacaoBody);
   }
 
+  @DeleteMapping(value = "/{id}")
+  public void delete(@PathVariable Long id){
+    areaAtuacaoService.delete(id);
+  }
+
 }

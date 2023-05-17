@@ -39,5 +39,8 @@ public class AreaAtuacaoService {
     areaAtuacao.setDescricao(areaAtuacaoBody.getDescricao());
   }
 
+  public void delete(Long id){
+    areaAtuacaoRepository.deleteById(id);
+  }
 
 }
