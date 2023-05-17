@@ -1,10 +1,8 @@
 package projeto.clinica.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import projeto.clinica.entities.AreaAtuacao;
 import projeto.clinica.entities.dto.AreaAtuacaoDTO;
 import projeto.clinica.services.AreaAtuacaoService;
 
@@ -25,6 +23,16 @@ public class AreaAtuacaoController implements Serializable {
   @GetMapping(value = "/{id}")
   public AreaAtuacaoDTO findById(@PathVariable Long id){
     return areaAtuacaoService.findById(id);
+  }
+
+  @PostMapping
+  public AreaAtuacaoDTO insert(@RequestBody AreaAtuacao areaAtuacao){
+    return areaAtuacaoService.insert(areaAtuacao);
+  }
+
+  @PutMapping(value = "/{id}")
+  public AreaAtuacaoDTO update(@PathVariable Long id, @RequestBody AreaAtuacao areaAtuacaoBody){
+    return areaAtuacaoService.update(id, areaAtuacaoBody);
   }
 
 }
