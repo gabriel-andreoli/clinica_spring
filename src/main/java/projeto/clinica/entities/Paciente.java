@@ -15,11 +15,11 @@ public class Paciente implements Serializable {
 
   private String nome;
   private String email;
-  private Character sexo;
+  private String sexo;
 
   public Paciente(){}
 
-  public Paciente(Long id, String nome, String email, Character sexo) {
+  public Paciente(Long id, String nome, String email, String sexo) {
     this.id = id;
     this.nome = nome;
     this.email = email;
@@ -46,11 +46,11 @@ public class Paciente implements Serializable {
     this.email = email;
   }
 
-  public Character getSexo() {
+  public String getSexo() {
     return sexo;
   }
 
-  public void setSexo(Character sexo) {
+  public void setSexo(String sexo) {
     this.sexo = sexo;
   }
 

@@ -1,0 +1,9 @@
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Gabriel', 'gabriel@gmail.com', 'M');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Rafael', 'rafael@gmail.com', 'M');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Roberto', 'roberto@gmail.com', 'M');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Ana', 'ana@gmail.com', 'F');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Patrick', 'patrick@gmail.com', 'M');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Rodrigo', 'rodrigo@gmail.com', 'M');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Aline', 'aline@gmail.com', 'F');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Paula', 'paula@gmail.com', 'F');
+INSERT INTO pacientes(nome, email, sexo) VALUES ('Maria', 'maria@gmail.com', 'F');
