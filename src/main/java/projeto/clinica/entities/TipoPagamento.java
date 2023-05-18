@@ -3,6 +3,8 @@ package projeto.clinica.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,8 @@ public class TipoPagamento implements Serializable {
   private Long id;
 
   private String descricao;
+  @OneToMany(mappedBy = "tipoPagamento")
+  private List<Consulta> consultas = new ArrayList<>();
 
   public TipoPagamento(){}
 
@@ -32,6 +36,14 @@ public class TipoPagamento implements Serializable {
 
   public void setDescricao(String descricao) {
     this.descricao = descricao;
+  }
+
+  public List<Consulta> getConsultas() {
+    return consultas;
+  }
+
+  public void adicionarConsulta(Consulta consulta) {
+    consultas.add(consulta);
   }
 
   @Override
