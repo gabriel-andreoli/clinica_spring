@@ -7,63 +7,34 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "pacientes")
-public class Paciente implements Serializable {
+public class Paciente extends Pessoa implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String nome;
-  private String email;
-  private String sexo;
-
   public Paciente(){}
 
   public Paciente(Long id, String nome, String email, String sexo) {
+    super(nome, email, sexo);
     this.id = id;
-    this.nome = nome;
-    this.email = email;
-    this.sexo = sexo;
   }
 
   public Long getId() {
     return id;
   }
 
-  public String getNome() {
-    return nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getSexo() {
-    return sexo;
-  }
-
-  public void setSexo(String sexo) {
-    this.sexo = sexo;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     Paciente paciente = (Paciente) o;
     return id.equals(paciente.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(super.hashCode(), id);
   }
 }

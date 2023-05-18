@@ -13,8 +13,8 @@ INSERT INTO tipo_pagamentos(descricao) VALUES ('DINHEIRO');
 INSERT INTO tipo_pagamentos(descricao) VALUES ('CARTAO DE DEBITO');
 INSERT INTO tipo_pagamentos(descricao) VALUES ('CARTAO DE CREDITO');
 
-INSERT INTO area_atuacao(descricao) VALUES ('NUTRICAO');
-INSERT INTO area_atuacao(descricao) VALUES ('FISIOTERAPIA');
-INSERT INTO area_atuacao(descricao) VALUES ('EDUCACAO FISICA');
-INSERT INTO area_atuacao(descricao) VALUES ('ENDOCRINOLOGIA');
-INSERT INTO area_atuacao(descricao) VALUES ('PSICOLOGIA');
+INSERT INTO areas_atuacoes(descricao) VALUES ('NUTRICAO');
+INSERT INTO areas_atuacoes(descricao) VALUES ('FISIOTERAPIA');
+INSERT INTO areas_atuacoes(descricao) VALUES ('EDUCACAO FISICA');
+INSERT INTO areas_atuacoes(descricao) VALUES ('ENDOCRINOLOGIA');
+INSERT INTO areas_atuacoes(descricao) VALUES ('PSICOLOGIA');
