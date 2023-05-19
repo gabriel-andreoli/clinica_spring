@@ -14,12 +14,13 @@ public class Profissional extends Pessoa implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  @Column(name = "preco_consulta")
   private Double precoConsulta;
   @Enumerated(EnumType.STRING)
   @Column(name = "grau_formacao")
   private GrauFormacaoEnum grauFormacao;
 
-  @OneToMany(mappedBy = "profissional")
+  @OneToMany(mappedBy = "id.profissional")
   private List<Consulta> consultas = new ArrayList<>();
 
   public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, GrauFormacaoEnum grauFormacao) {
@@ -51,6 +52,14 @@ public class Profissional extends Pessoa implements Serializable {
 
   public void setGrauFormacao(GrauFormacaoEnum grauFormacao) {
     this.grauFormacao = grauFormacao;
+  }
+
+  public List<Consulta> getConsultas() {
+    return consultas;
+  }
+
+  public void adicionarConsulta(Consulta consulta){
+    consultas.add(consulta);
   }
 
   @Override
