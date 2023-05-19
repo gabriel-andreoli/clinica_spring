@@ -3,6 +3,8 @@ package projeto.clinica.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +15,9 @@ public class Paciente extends Pessoa implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @OneToMany(mappedBy = "paciente")
+  private List<Consulta> consultas = new ArrayList<>();
+
   public Paciente(){}
 
   public Paciente(Long id, String nome, String email, String sexo) {
@@ -22,6 +27,14 @@ public class Paciente extends Pessoa implements Serializable {
 
   public Long getId() {
     return id;
+  }
+
+  public List<Consulta> getConsultas() {
+    return consultas;
+  }
+
+  public void adicionarConsulta(Consulta consulta){
+    consultas.add(consulta);
   }
 
   @Override

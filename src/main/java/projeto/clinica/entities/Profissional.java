@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import projeto.clinica.entities.enumerate.GrauFormacaoEnum;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +18,9 @@ public class Profissional extends Pessoa implements Serializable {
   @Enumerated(EnumType.STRING)
   @Column(name = "grau_formacao")
   private GrauFormacaoEnum grauFormacao;
+
+  @OneToMany(mappedBy = "profissional")
+  private List<Consulta> consultas = new ArrayList<>();
 
   public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, GrauFormacaoEnum grauFormacao) {
     super(nome, email, sexo);

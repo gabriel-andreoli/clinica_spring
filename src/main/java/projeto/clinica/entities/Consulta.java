@@ -15,13 +15,17 @@ public class Consulta implements Serializable {
   private TipoPagamento tipoPagamento;
 
   private Double precoConsulta;
+  private String dataConsulta;
+
 
   public Consulta(){}
 
-  public Consulta(ConsultaPK id, TipoPagamento tipoPagamento, Double precoConsulta) {
-    this.id = id;
+  public Consulta(ConsultaPK id, Profissional profissional, Paciente paciente, TipoPagamento tipoPagamento, Double precoConsulta, String dataConsulta) {
+    id.setProfissional(profissional);
+    id.setPaciente(paciente);
     this.tipoPagamento = tipoPagamento;
     this.precoConsulta = precoConsulta;
+    this.dataConsulta = dataConsulta;
   }
 
   public ConsultaPK getId() {
@@ -42,6 +46,14 @@ public class Consulta implements Serializable {
 
   public void setTipoPagamento(TipoPagamento tipoPagamento) {
     this.tipoPagamento = tipoPagamento;
+  }
+
+  public String getDataConsulta() {
+    return dataConsulta;
+  }
+
+  public void setDataConsulta(String dataConsulta) {
+    this.dataConsulta = dataConsulta;
   }
 
   public Double setPrecoConsulta(Double taxaPorcentagem){
