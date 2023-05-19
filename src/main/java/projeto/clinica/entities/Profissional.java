@@ -1,7 +1,6 @@
 package projeto.clinica.entities;
 
 import jakarta.persistence.*;
-import projeto.clinica.entities.enumerate.GrauFormacaoEnum;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,14 +15,14 @@ public class Profissional extends Pessoa implements Serializable {
   private Long id;
   @Column(name = "preco_consulta")
   private Double precoConsulta;
-  @Enumerated(EnumType.STRING)
   @Column(name = "grau_formacao")
-  private GrauFormacaoEnum grauFormacao;
+  private String grauFormacao;
 
   @OneToMany(mappedBy = "id.profissional")
   private List<Consulta> consultas = new ArrayList<>();
 
-  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, GrauFormacaoEnum grauFormacao) {
+  public Profissional(){}
+  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao) {
     super(nome, email, sexo);
     this.id = id;
     this.precoConsulta = precoConsulta;
@@ -46,11 +45,11 @@ public class Profissional extends Pessoa implements Serializable {
     this.precoConsulta = precoConsulta;
   }
 
-  public GrauFormacaoEnum getGrauFormacao() {
+  public String getGrauFormacao() {
     return grauFormacao;
   }
 
-  public void setGrauFormacao(GrauFormacaoEnum grauFormacao) {
+  public void setGrauFormacao(String grauFormacao) {
     this.grauFormacao = grauFormacao;
   }
 

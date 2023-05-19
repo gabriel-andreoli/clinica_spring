@@ -1,10 +1,7 @@
 package projeto.clinica.entities.dto;
 
-import jakarta.persistence.*;
-import org.springframework.beans.BeanUtils;
 import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Profissional;
-import projeto.clinica.entities.enumerate.GrauFormacaoEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +9,7 @@ import java.util.List;
 public class ProfissionalDTO {
   private Long id;
   private Double precoConsulta;
-  private GrauFormacaoEnum grauFormacao;
+  private String grauFormacao;
   private List<Consulta> consultas = new ArrayList<>();
 
 
@@ -39,11 +36,11 @@ public class ProfissionalDTO {
     this.precoConsulta = precoConsulta;
   }
 
-  public GrauFormacaoEnum getGrauFormacao() {
+  public String getGrauFormacao() {
     return grauFormacao;
   }
 
-  public void setGrauFormacao(GrauFormacaoEnum grauFormacao) {
+  public void setGrauFormacao(String grauFormacao) {
     this.grauFormacao = grauFormacao;
   }
 
