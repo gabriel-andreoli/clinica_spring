@@ -8,6 +8,9 @@ import java.util.List;
 
 public class ProfissionalDTO {
   private Long id;
+  private String nome;
+  private String email;
+  private String sexo;
   private Double precoConsulta;
   private String grauFormacao;
   private List<Consulta> consultas = new ArrayList<>();
@@ -15,6 +18,9 @@ public class ProfissionalDTO {
 
   public ProfissionalDTO(Profissional profissional){
     this.id = profissional.getId();
+    this.nome = profissional.getNome();
+    this.email = profissional.getEmail();
+    this.sexo = profissional.getSexo();
     this.precoConsulta = profissional.getPrecoConsulta();
     this.grauFormacao = profissional.getGrauFormacao();
     this.consultas.addAll(profissional.getConsultas());
@@ -26,6 +32,30 @@ public class ProfissionalDTO {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getSexo() {
+    return sexo;
+  }
+
+  public void setSexo(String sexo) {
+    this.sexo = sexo;
   }
 
   public Double getPrecoConsulta() {

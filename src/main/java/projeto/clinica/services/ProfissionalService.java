@@ -2,6 +2,7 @@ package projeto.clinica.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Profissional;
 import projeto.clinica.entities.dto.ProfissionalDTO;
 import projeto.clinica.repositories.ProfissionalRepository;
@@ -37,5 +38,12 @@ public class ProfissionalService {
     obj.setEmail(profissionalReq.getEmail());
     obj.setPrecoConsulta(profissionalReq.getPrecoConsulta());
     obj.setGrauFormacao(profissionalReq.getGrauFormacao());
+    for(Consulta consulta : profissionalReq.getConsultas()){
+      obj.adicionarConsulta(consulta);
+    }
+  }
+
+  public void delete(Long id){
+    profissionalRepository.deleteById(id);
   }
 }

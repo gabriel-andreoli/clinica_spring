@@ -33,4 +33,9 @@ public class ProfissionalController {
   public ProfissionalDTO update(@PathVariable Long id, @RequestBody Profissional profissionalReq){
     return profissionalService.update(id, profissionalReq);
   }
+
+  @DeleteMapping
+  public void delete(@PathVariable Long id){
+    profissionalService.delete(id);
+  }
 }
