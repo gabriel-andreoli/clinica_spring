@@ -1,9 +1,8 @@
 package projeto.clinica.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import projeto.clinica.entities.Profissional;
 import projeto.clinica.entities.dto.ProfissionalDTO;
 import projeto.clinica.services.ProfissionalService;
 
@@ -18,5 +17,15 @@ public class ProfissionalController {
   @GetMapping
   public List<ProfissionalDTO> findAll(){
     return profissionalService.findAll();
+  }
+
+  @GetMapping(value = "/{id}")
+  public ProfissionalDTO findById(@PathVariable Long id){
+    return profissionalService.findById(id);
+  }
+
+  @PostMapping
+  public ProfissionalDTO insert(@RequestBody Profissional profissional){
+    return profissionalService.insert(profissional);
   }
 }
