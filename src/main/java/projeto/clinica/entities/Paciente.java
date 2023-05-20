@@ -1,5 +1,6 @@
 package projeto.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -29,6 +30,7 @@ public class Paciente extends Pessoa implements Serializable {
     return id;
   }
 
+  @JsonIgnore
   public List<Consulta> getConsultas() {
     return consultas;
   }

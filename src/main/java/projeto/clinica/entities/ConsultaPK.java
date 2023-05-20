@@ -1,5 +1,7 @@
 package projeto.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -8,9 +10,11 @@ import java.util.Objects;
 
 @Embeddable
 public class ConsultaPK {
+
   @ManyToOne
   @JoinColumn(name = "paciente_id")
   private Paciente paciente;
+
   @ManyToOne
   @JoinColumn(name = "profissional_id")
   private Profissional profissional;

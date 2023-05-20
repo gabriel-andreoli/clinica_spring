@@ -25,3 +25,9 @@ INSERT INTO tipo_pagamentos(descricao) VALUES ('DINHEIRO');
 INSERT INTO tipo_pagamentos(descricao) VALUES ('CARTAO DE DEBITO');
 INSERT INTO tipo_pagamentos(descricao) VALUES ('CARTAO DE CREDITO');
 
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (1, 5, 1, 230 * 1.1, '28/05/2023');
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (3, 4, 3, 350 * 1.1, '30/05/2023');
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (2, 4, 4, 350 * 1.1, '01/06/2023');
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (6, 2, 4, 200 * 1.1, '04/06/2023');
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (1, 3, 2, 265 * 1.1, '07/06/2023');
+

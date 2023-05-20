@@ -14,17 +14,20 @@ public class Consulta implements Serializable {
   @JoinColumn(name = "tipo_pagamento_id")
   private TipoPagamento tipoPagamento;
 
-  private Double precoConsulta;
+  @Column(name = "preco_total_consulta")
+  private Double precoTotalConsulta;
+
+  @Column(name = "data_consulta")
   private String dataConsulta;
 
 
   public Consulta(){}
 
-  public Consulta(ConsultaPK id, Profissional profissional, Paciente paciente, TipoPagamento tipoPagamento, Double precoConsulta, String dataConsulta) {
+  public Consulta(ConsultaPK id, Profissional profissional, Paciente paciente, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
     id.setProfissional(profissional);
     id.setPaciente(paciente);
     this.tipoPagamento = tipoPagamento;
-    this.precoConsulta = precoConsulta;
+    this.precoTotalConsulta = precoTotalConsulta;
     this.dataConsulta = dataConsulta;
   }
 
@@ -40,8 +43,8 @@ public class Consulta implements Serializable {
     return tipoPagamento;
   }
 
-  public Double getPrecoConsulta() {
-    return precoConsulta;
+  public Double getPrecoTotalConsulta() {
+    return precoTotalConsulta;
   }
 
   public void setTipoPagamento(TipoPagamento tipoPagamento) {
@@ -56,7 +59,7 @@ public class Consulta implements Serializable {
     this.dataConsulta = dataConsulta;
   }
 
-  public Double setPrecoConsulta(Double taxaPorcentagem){
+  public Double setPrecoTotalConsulta(Double taxaPorcentagem){
     Double precoConsultaProfissional = id.getProfissional().getPrecoConsulta();
     return precoConsultaProfissional + (taxaPorcentagem/100 * precoConsultaProfissional);
   }

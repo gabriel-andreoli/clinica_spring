@@ -13,7 +13,6 @@ public class ProfissionalDTO {
   private String sexo;
   private Double precoConsulta;
   private String grauFormacao;
-  private List<Consulta> consultas = new ArrayList<>();
 
 
   public ProfissionalDTO(Profissional profissional){
@@ -23,7 +22,6 @@ public class ProfissionalDTO {
     this.sexo = profissional.getSexo();
     this.precoConsulta = profissional.getPrecoConsulta();
     this.grauFormacao = profissional.getGrauFormacao();
-    this.consultas.addAll(profissional.getConsultas());
   }
 
   public Long getId() {
@@ -74,11 +72,4 @@ public class ProfissionalDTO {
     this.grauFormacao = grauFormacao;
   }
 
-  public List<Consulta> getConsultas() {
-    return consultas;
-  }
-
-  public void setConsultas(List<Consulta> consultas) {
-    this.consultas = consultas;
-  }
 }

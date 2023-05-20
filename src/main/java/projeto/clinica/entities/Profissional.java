@@ -1,5 +1,8 @@
 package projeto.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -13,8 +16,10 @@ public class Profissional extends Pessoa implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   @Column(name = "preco_consulta")
   private Double precoConsulta;
+
   @Column(name = "grau_formacao")
   private String grauFormacao;
 
@@ -53,6 +58,7 @@ public class Profissional extends Pessoa implements Serializable {
     this.grauFormacao = grauFormacao;
   }
 
+  @JsonIgnore
   public List<Consulta> getConsultas() {
     return consultas;
   }
