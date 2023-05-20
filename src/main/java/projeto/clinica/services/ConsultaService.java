@@ -2,6 +2,7 @@ package projeto.clinica.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.dto.ConsultaDTO;
 import projeto.clinica.repositories.ConsultaRepository;
 
@@ -18,5 +19,13 @@ public class ConsultaService {
 
   public ConsultaDTO findById(Long id){
     return new ConsultaDTO(consultaRepository.findById(id).get());
+  }
+
+  public ConsultaDTO insert(Consulta consulta){
+    return new ConsultaDTO(consulta);
+  }
+
+  public void delete(Long id){
+    consultaRepository.deleteById(id);
   }
 }

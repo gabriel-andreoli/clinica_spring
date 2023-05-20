@@ -1,10 +1,8 @@
 package projeto.clinica.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.dto.ConsultaDTO;
 import projeto.clinica.services.ConsultaService;
 
@@ -24,5 +22,15 @@ public class ConsultaController {
   @GetMapping(value = "/{id}")
   public ConsultaDTO findById(@PathVariable Long id){
     return consultaService.findById(id);
+  }
+
+  @PostMapping
+  public ConsultaDTO insert(@RequestBody Consulta consulta){
+    return consultaService.insert(consulta);
+  }
+  
+  @DeleteMapping(value = "/{id}")
+  public void delete(@PathVariable Long id){
+    return consultaService.delete();
   }
 }
