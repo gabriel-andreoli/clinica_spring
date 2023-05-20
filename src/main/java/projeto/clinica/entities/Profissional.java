@@ -1,14 +1,10 @@
 package projeto.clinica.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "profissionais")
@@ -24,7 +20,7 @@ public class Profissional extends Pessoa implements Serializable {
   private String grauFormacao;
 
   @OneToMany(mappedBy = "profissional")
-  private List<Consulta> consultas = new ArrayList<>();
+  private Set<Consulta> consultas = new HashSet<>();
 
   public Profissional(){}
   public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao) {
@@ -59,7 +55,7 @@ public class Profissional extends Pessoa implements Serializable {
   }
 
   @JsonIgnore
-  public List<Consulta> getConsultas() {
+  public Set<Consulta> getConsultas() {
     return consultas;
   }
 

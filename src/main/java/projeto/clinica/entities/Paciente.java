@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "pacientes")
@@ -17,7 +15,7 @@ public class Paciente extends Pessoa implements Serializable {
   private Long id;
 
   @OneToMany(mappedBy = "paciente")
-  private List<Consulta> consultas = new ArrayList<>();
+  private Set<Consulta> consultas = new HashSet<>();
 
   public Paciente(){}
 
@@ -31,7 +29,7 @@ public class Paciente extends Pessoa implements Serializable {
   }
 
   @JsonIgnore
-  public List<Consulta> getConsultas() {
+  public Set<Consulta> getConsultas() {
     return consultas;
   }
 

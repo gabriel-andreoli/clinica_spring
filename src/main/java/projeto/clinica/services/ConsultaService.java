@@ -29,7 +29,7 @@ public class ConsultaService {
 
   @Transactional
   public ConsultaDTO insert(Consulta consulta){
-    return new ConsultaDTO(consulta);
+    return new ConsultaDTO(consultaRepository.save(consulta));
   }
 
   @Transactional

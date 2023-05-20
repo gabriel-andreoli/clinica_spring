@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tipo_pagamentos")
@@ -17,9 +15,9 @@ public class TipoPagamento implements Serializable {
   private Long id;
 
   private String descricao;
-  @JsonIgnore
+
   @OneToMany(mappedBy = "tipoPagamento")
-  private List<Consulta> consultas = new ArrayList<>();
+  private Set<Consulta> consultas = new HashSet<>();
 
   public TipoPagamento(){}
 
@@ -40,7 +38,8 @@ public class TipoPagamento implements Serializable {
     this.descricao = descricao;
   }
 
-  public List<Consulta> getConsultas() {
+  @JsonIgnore
+  public Set<Consulta> getConsultas() {
     return consultas;
   }
 
