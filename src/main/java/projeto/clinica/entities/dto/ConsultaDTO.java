@@ -2,10 +2,14 @@ package projeto.clinica.entities.dto;
 
 import org.springframework.beans.BeanUtils;
 import projeto.clinica.entities.Consulta;
+import projeto.clinica.entities.Paciente;
+import projeto.clinica.entities.Profissional;
 import projeto.clinica.entities.TipoPagamento;
 
 public class ConsultaDTO {
   private Long id;
+  private Paciente paciente;
+  private Profissional profissional;
   private TipoPagamento tipoPagamento;
   private Double precoTotalConsulta;
   private String dataConsulta;
@@ -21,6 +25,22 @@ public class ConsultaDTO {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Paciente getPaciente() {
+    return paciente;
+  }
+
+  public void setPaciente(Paciente paciente) {
+    this.paciente = paciente;
+  }
+
+  public Profissional getProfissional() {
+    return profissional;
+  }
+
+  public void setProfissional(Profissional profissional) {
+    this.profissional = profissional;
   }
 
   public TipoPagamento getTipoPagamento() {

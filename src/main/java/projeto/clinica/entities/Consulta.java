@@ -3,6 +3,7 @@ package projeto.clinica.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "consultas")
@@ -32,8 +33,10 @@ public class Consulta implements Serializable {
 
   public Consulta(){}
 
-  public Consulta(Long id, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
+  public Consulta(Long id, Paciente paciente, Profissional profissional, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
     this.id = id;
+    this.paciente = paciente;
+    this.profissional = profissional;
     this.tipoPagamento = tipoPagamento;
     this.precoTotalConsulta = precoTotalConsulta;
     this.dataConsulta = dataConsulta;
@@ -45,26 +48,6 @@ public class Consulta implements Serializable {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public TipoPagamento getTipoPagamento() {
-    return tipoPagamento;
-  }
-
-  public Double getPrecoTotalConsulta() {
-    return precoTotalConsulta;
-  }
-
-  public void setTipoPagamento(TipoPagamento tipoPagamento) {
-    this.tipoPagamento = tipoPagamento;
-  }
-
-  public String getDataConsulta() {
-    return dataConsulta;
-  }
-
-  public void setDataConsulta(String dataConsulta) {
-    this.dataConsulta = dataConsulta;
   }
 
   public Paciente getPaciente() {
@@ -79,8 +62,48 @@ public class Consulta implements Serializable {
     return profissional;
   }
 
-  public Double setPrecoTotalConsulta(Double taxaPorcentagem){
+  public void setProfissional(Profissional profissional) {
+    this.profissional = profissional;
+  }
+
+  public TipoPagamento getTipoPagamento() {
+    return tipoPagamento;
+  }
+
+  public void setTipoPagamento(TipoPagamento tipoPagamento) {
+    this.tipoPagamento = tipoPagamento;
+  }
+
+  public Double getPrecoTotalConsulta() {
+    return precoTotalConsulta;
+  }
+
+  public void setPrecoTotalConsulta(Double precoTotalConsulta) {
+    this.precoTotalConsulta = precoTotalConsulta;
+  }
+
+  public String getDataConsulta() {
+    return dataConsulta;
+  }
+
+  public void setDataConsulta(String dataConsulta) {
+    this.dataConsulta = dataConsulta;
+  }
+
+  public Double calcularPrecoTotalConsulta(Double taxaPorcentagem){
     return getProfissional().getPrecoConsulta() + (taxaPorcentagem/100 * getProfissional().getPrecoConsulta());
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Consulta consulta = (Consulta) o;
+    return id.equals(consulta.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 }

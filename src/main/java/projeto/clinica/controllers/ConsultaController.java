@@ -28,9 +28,14 @@ public class ConsultaController {
   public ConsultaDTO insert(@RequestBody Consulta consulta){
     return consultaService.insert(consulta);
   }
-  
+
+  @PutMapping(value = "/{id}")
+  public ConsultaDTO update(@PathVariable Long id, @RequestBody Consulta consulta){
+    return consultaService.update(id, consulta);
+  }
+
   @DeleteMapping(value = "/{id}")
   public void delete(@PathVariable Long id){
-    return consultaService.delete();
+    consultaService.delete(id);
   }
 }

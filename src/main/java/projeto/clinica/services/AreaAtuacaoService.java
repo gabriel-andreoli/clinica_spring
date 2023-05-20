@@ -9,6 +9,7 @@ import projeto.clinica.repositories.AreaAtuacaoRepository;
 
 import java.awt.geom.Area;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AreaAtuacaoService {
@@ -21,14 +22,19 @@ public class AreaAtuacaoService {
   }
 
   @Transactional(readOnly = true)
-  public AreaAtuacaoDTO findById(Long id){
-    return new AreaAtuacaoDTO(areaAtuacaoRepository.findById(id).get());
+  public AreaAtuacaoDTO findById(Long id) {
+    AreaAtuacao areaAtuacao = areaAtuacaoRepository.findById(id)
+            .orElseThrow(() -> new NoSuchElementException("Área de atuação não encontrada com o ID: " + id));
+    return new AreaAtuacaoDTO(areaAtuacao);
   }
 
+
+  @Transactional
   public AreaAtuacaoDTO insert(AreaAtuacao areaAtuacao){
     return new  AreaAtuacaoDTO(areaAtuacaoRepository.save(areaAtuacao));
   }
 
+  @Transactional
   public AreaAtuacaoDTO update(Long id, AreaAtuacao areaAtuacaoBody){
     AreaAtuacao obj = areaAtuacaoRepository.getReferenceById(id);
     updateParcial(obj, areaAtuacaoBody);
@@ -39,6 +45,7 @@ public class AreaAtuacaoService {
     areaAtuacao.setDescricao(areaAtuacaoBody.getDescricao());
   }
 
+  @Transactional
   public void delete(Long id){
     areaAtuacaoRepository.deleteById(id);
   }
