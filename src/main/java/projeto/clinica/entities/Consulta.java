@@ -30,6 +30,9 @@ public class Consulta implements Serializable {
   @Column(name = "data_consulta")
   private String dataConsulta;
 
+  @Column(name = "preco_total")
+  private Double precoTotal;
+
 
   public Consulta(){}
 
@@ -90,8 +93,12 @@ public class Consulta implements Serializable {
     this.dataConsulta = dataConsulta;
   }
 
-  public Double calcularPrecoTotalConsulta(Double taxaPorcentagem){
-    return getProfissional().getPrecoConsulta() + (taxaPorcentagem/100 * getProfissional().getPrecoConsulta());
+  public Double getPrecoTotal() {
+    return precoTotal;
+  }
+
+  public void setPrecoTotal(Double precoTotal) {
+    this.precoTotal = precoTotal;
   }
 
   @Override
