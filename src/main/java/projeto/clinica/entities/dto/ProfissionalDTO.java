@@ -1,10 +1,7 @@
 package projeto.clinica.entities.dto;
 
-import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Profissional;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProfissionalDTO {
   private Long id;
@@ -15,6 +12,7 @@ public class ProfissionalDTO {
   private String grauFormacao;
 
 
+  public ProfissionalDTO(){}
   public ProfissionalDTO(Profissional profissional){
     this.id = profissional.getId();
     this.nome = profissional.getNome();

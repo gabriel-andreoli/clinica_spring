@@ -7,8 +7,17 @@ import java.io.Serializable;
 @Entity
 @Table(name = "consultas")
 public class Consulta implements Serializable {
-  @EmbeddedId
-  private ConsultaPK id = new ConsultaPK();
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @ManyToOne
+  @JoinColumn(name = "paciente_id")
+  private Paciente paciente;
+
+  @ManyToOne
+  @JoinColumn(name = "profissional_id")
+  private Profissional profissional;
 
   @ManyToOne
   @JoinColumn(name = "tipo_pagamento_id")
@@ -23,19 +32,18 @@ public class Consulta implements Serializable {
 
   public Consulta(){}
 
-  public Consulta(ConsultaPK id, Profissional profissional, Paciente paciente, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
-    id.setProfissional(profissional);
-    id.setPaciente(paciente);
+  public Consulta(Long id, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
+    this.id = id;
     this.tipoPagamento = tipoPagamento;
     this.precoTotalConsulta = precoTotalConsulta;
     this.dataConsulta = dataConsulta;
   }
 
-  public ConsultaPK getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(ConsultaPK id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -59,9 +67,20 @@ public class Consulta implements Serializable {
     this.dataConsulta = dataConsulta;
   }
 
+  public Paciente getPaciente() {
+    return paciente;
+  }
+
+  public void setPaciente(Paciente paciente) {
+    this.paciente = paciente;
+  }
+
+  public Profissional getProfissional() {
+    return profissional;
+  }
+
   public Double setPrecoTotalConsulta(Double taxaPorcentagem){
-    Double precoConsultaProfissional = id.getProfissional().getPrecoConsulta();
-    return precoConsultaProfissional + (taxaPorcentagem/100 * precoConsultaProfissional);
+    return getProfissional().getPrecoConsulta() + (taxaPorcentagem/100 * getProfissional().getPrecoConsulta());
   }
 
 }

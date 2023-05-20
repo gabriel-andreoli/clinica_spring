@@ -16,7 +16,7 @@ public class Paciente extends Pessoa implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToMany(mappedBy = "id.paciente")
+  @OneToMany(mappedBy = "paciente")
   private List<Consulta> consultas = new ArrayList<>();
 
   public Paciente(){}

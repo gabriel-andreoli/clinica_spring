@@ -23,7 +23,7 @@ public class Profissional extends Pessoa implements Serializable {
   @Column(name = "grau_formacao")
   private String grauFormacao;
 
-  @OneToMany(mappedBy = "id.profissional")
+  @OneToMany(mappedBy = "profissional")
   private List<Consulta> consultas = new ArrayList<>();
 
   public Profissional(){}
