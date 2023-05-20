@@ -24,4 +24,18 @@ public class ProfissionalService {
   public ProfissionalDTO insert(Profissional profissional){
     return new ProfissionalDTO(profissionalRepository.save(profissional));
   }
+
+  public ProfissionalDTO update(Long id, Profissional profissionalReq){
+    Profissional obj = profissionalRepository.getReferenceById(id);
+    updateParcial(obj, profissionalReq);
+    return new ProfissionalDTO(profissionalRepository.save(obj));
+  }
+
+  public void updateParcial(Profissional obj, Profissional profissionalReq){
+    obj.setNome(profissionalReq.getNome());
+    obj.setSexo(profissionalReq.getSexo());
+    obj.setEmail(profissionalReq.getEmail());
+    obj.setPrecoConsulta(profissionalReq.getPrecoConsulta());
+    obj.setGrauFormacao(profissionalReq.getGrauFormacao());
+  }
 }

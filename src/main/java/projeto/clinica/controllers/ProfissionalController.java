@@ -28,4 +28,9 @@ public class ProfissionalController {
   public ProfissionalDTO insert(@RequestBody Profissional profissional){
     return profissionalService.insert(profissional);
   }
+
+  @PutMapping(value = "/{id}")
+  public ProfissionalDTO update(@PathVariable Long id, @RequestBody Profissional profissionalReq){
+    return profissionalService.update(id, profissionalReq);
+  }
 }
