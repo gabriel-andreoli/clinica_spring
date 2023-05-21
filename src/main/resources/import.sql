@@ -9,6 +9,7 @@ INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALU
 INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Vanessa Cloven', 'vanessacloven@gmail.com', 'F', 265, 'Mestrado');
 INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Yuri Sanin', 'yurisanin@gmail.com', 'M', 350, 'Doutorado');
 INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Ana Leticia', 'analeticia@gmail.com', 'F', 230, 'Pos-Graduacao');
+INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Fernanda Tita', 'fernandatita@gmail.com', 'F', 310, 'Doutorado');
 
 INSERT INTO pacientes(nome, email, sexo) VALUES ('Gabriel', 'gabriel@gmail.com', 'M');
 INSERT INTO pacientes(nome, email, sexo) VALUES ('Rafael', 'rafael@gmail.com', 'M');
@@ -30,4 +31,5 @@ INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_tot
 INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (2, 4, 4, 350 * 1.1, '01/06/2023');
 INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (6, 2, 4, 200 * 1.1, '04/06/2023');
 INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (1, 3, 2, 265 * 1.1, '07/06/2023');
+INSERT INTO consultas(paciente_id, profissional_id, tipo_pagamento_id, preco_total_consulta, data_consulta) VALUES (6, 6, 3, 310 * 1.1, '12/06/2023');
 

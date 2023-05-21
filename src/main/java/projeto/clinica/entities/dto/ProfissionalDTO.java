@@ -1,6 +1,12 @@
 package projeto.clinica.entities.dto;
 
+import jakarta.persistence.OneToMany;
+import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Profissional;
+import projeto.clinica.entities.ProfissionalAreaAtuacao;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class ProfissionalDTO {
@@ -10,6 +16,8 @@ public class ProfissionalDTO {
   private String sexo;
   private Double precoConsulta;
   private String grauFormacao;
+  private Set<Consulta> consultas = new HashSet<>();
+  private ProfissionalAreaAtuacao profissionalAreaAtuacao;
 
 
   public ProfissionalDTO(){}
@@ -20,6 +28,8 @@ public class ProfissionalDTO {
     this.sexo = profissional.getSexo();
     this.precoConsulta = profissional.getPrecoConsulta();
     this.grauFormacao = profissional.getGrauFormacao();
+    this.profissionalAreaAtuacao = profissional.getProfissionalAreaAtuacao();
+    this.consultas.addAll(profissional.getConsultas());
   }
 
   public Long getId() {
@@ -70,4 +80,15 @@ public class ProfissionalDTO {
     this.grauFormacao = grauFormacao;
   }
 
+  public Set<Consulta> getConsultas() {
+    return consultas;
+  }
+
+  public ProfissionalAreaAtuacao getProfissionalAreaAtuacao() {
+    return profissionalAreaAtuacao;
+  }
+
+  public void setProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao) {
+    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
+  }
 }

@@ -24,7 +24,7 @@ public class TipoPagamento implements Serializable {
   public TipoPagamento(Long id, String descricao, Set<Consulta> consultas) {
     this.id = id;
     this.descricao = descricao;
-    this.consultas = consultas;
+    this.consultas.addAll(consultas);
   }
 
   public Long getId() {

@@ -13,6 +13,7 @@ public class ConsultaDTO {
   private TipoPagamento tipoPagamento;
   private Double precoTotalConsulta;
   private String dataConsulta;
+  private Double precoTotal;
 
   public ConsultaDTO(){}
   public ConsultaDTO(Consulta consulta){
@@ -65,5 +66,13 @@ public class ConsultaDTO {
 
   public void setDataConsulta(String dataConsulta) {
     this.dataConsulta = dataConsulta;
+  }
+
+  public Double getPrecoTotal() {
+    return precoTotal;
+  }
+
+  public void setPrecoTotal(Double precoTotal) {
+    this.precoTotal = precoTotal;
   }
 }

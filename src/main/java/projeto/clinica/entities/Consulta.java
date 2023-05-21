@@ -33,7 +33,6 @@ public class Consulta implements Serializable {
   @Column(name = "preco_total")
   private Double precoTotal;
 
-
   public Consulta(){}
 
   public Consulta(Long id, Paciente paciente, Profissional profissional, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
