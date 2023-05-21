@@ -22,12 +22,17 @@ public class Profissional extends Pessoa implements Serializable {
   @OneToMany(mappedBy = "profissional")
   private Set<Consulta> consultas = new HashSet<>();
 
+  @OneToMany(mappedBy = "id.profissional")
+  private ProfissionalAreaAtuacao profissionalAreaAtuacao;
+
   public Profissional(){}
-  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao) {
+  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao, Set<Consulta> consultas, ProfissionalAreaAtuacao profissionalAreaAtuacao) {
     super(nome, email, sexo);
     this.id = id;
     this.precoConsulta = precoConsulta;
     this.grauFormacao = grauFormacao;
+    this.consultas = consultas;
+    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
   }
 
   public Long getId() {
@@ -52,6 +57,14 @@ public class Profissional extends Pessoa implements Serializable {
 
   public void setGrauFormacao(String grauFormacao) {
     this.grauFormacao = grauFormacao;
+  }
+
+  public ProfissionalAreaAtuacao getProfissionalAreaAtuacao() {
+    return profissionalAreaAtuacao;
+  }
+
+  public void setProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao) {
+    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
   }
 
   @JsonIgnore

@@ -10,14 +10,17 @@ public class AreaAtuacao {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String descricao;
+
+  @OneToMany(mappedBy = "id.areaAtuacao")
+  private ProfissionalAreaAtuacao profissionalAreaAtuacao;
 
   public AreaAtuacao(){}
 
-  public AreaAtuacao(Long id, String descricao) {
+  public AreaAtuacao(Long id, String descricao, ProfissionalAreaAtuacao profissionalAreaAtuacao) {
     this.id = id;
     this.descricao = descricao;
+    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
   }
 
   public Long getId() {
@@ -34,6 +37,14 @@ public class AreaAtuacao {
 
   public void setDescricao(String descricao) {
     this.descricao = descricao;
+  }
+
+  public ProfissionalAreaAtuacao getProfissionalAreaAtuacao() {
+    return profissionalAreaAtuacao;
+  }
+
+  public void setProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao) {
+    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
   }
 
   @Override

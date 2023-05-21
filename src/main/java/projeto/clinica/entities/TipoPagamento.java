@@ -21,13 +21,18 @@ public class TipoPagamento implements Serializable {
 
   public TipoPagamento(){}
 
-  public TipoPagamento(Long id, String descricao) {
+  public TipoPagamento(Long id, String descricao, Set<Consulta> consultas) {
     this.id = id;
     this.descricao = descricao;
+    this.consultas = consultas;
   }
 
   public Long getId() {
     return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getDescricao() {

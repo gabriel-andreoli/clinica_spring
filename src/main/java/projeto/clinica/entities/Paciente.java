@@ -19,13 +19,18 @@ public class Paciente extends Pessoa implements Serializable {
 
   public Paciente(){}
 
-  public Paciente(Long id, String nome, String email, String sexo) {
+  public Paciente(String nome, String email, String sexo, Long id, Set<Consulta> consultas) {
     super(nome, email, sexo);
     this.id = id;
+    this.consultas = consultas;
   }
 
   public Long getId() {
     return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   @JsonIgnore
