@@ -1,23 +1,23 @@
 package projeto.clinica.entities.dto;
 
-import org.springframework.beans.BeanUtils;
 import projeto.clinica.entities.Consulta;
-import projeto.clinica.entities.Paciente;
-import projeto.clinica.entities.Profissional;
-import projeto.clinica.entities.TipoPagamento;
 
 public class ConsultaDTO {
   private Long id;
-  private Paciente paciente;
-  private Profissional profissional;
-  private TipoPagamento tipoPagamento;
+  private String nomeProfissional;
+  private String nomePaciente;
+  private String nomeTipoPagamento;
   private Double precoTotalConsulta;
   private String dataConsulta;
-  private Double precoTotal;
 
   public ConsultaDTO(){}
   public ConsultaDTO(Consulta consulta){
-    BeanUtils.copyProperties(consulta, this);
+    this.id = consulta.getId();
+    this.nomeProfissional = consulta.getProfissional().getNome();
+    this.nomePaciente = consulta.getPaciente().getNome();
+    this.nomeTipoPagamento = consulta.getTipoPagamento().getDescricao();
+    this.precoTotalConsulta = consulta.getPrecoTotalConsulta();
+    this.dataConsulta = consulta.getDataConsulta();
   }
 
   public Long getId() {
@@ -28,28 +28,28 @@ public class ConsultaDTO {
     this.id = id;
   }
 
-  public Paciente getPaciente() {
-    return paciente;
+  public String getNomeProfissional() {
+    return nomeProfissional;
   }
 
-  public void setPaciente(Paciente paciente) {
-    this.paciente = paciente;
+  public void setNomeProfissional(String nomeProfissional) {
+    this.nomeProfissional = nomeProfissional;
   }
 
-  public Profissional getProfissional() {
-    return profissional;
+  public String getNomePaciente() {
+    return nomePaciente;
   }
 
-  public void setProfissional(Profissional profissional) {
-    this.profissional = profissional;
+  public void setNomePaciente(String nomePaciente) {
+    this.nomePaciente = nomePaciente;
   }
 
-  public TipoPagamento getTipoPagamento() {
-    return tipoPagamento;
+  public String getNomeTipoPagamento() {
+    return nomeTipoPagamento;
   }
 
-  public void setTipoPagamento(TipoPagamento tipoPagamento) {
-    this.tipoPagamento = tipoPagamento;
+  public void setNomeTipoPagamento(String nomeTipoPagamento) {
+    this.nomeTipoPagamento = nomeTipoPagamento;
   }
 
   public Double getPrecoTotalConsulta() {
@@ -66,13 +66,5 @@ public class ConsultaDTO {
 
   public void setDataConsulta(String dataConsulta) {
     this.dataConsulta = dataConsulta;
-  }
-
-  public Double getPrecoTotal() {
-    return precoTotal;
-  }
-
-  public void setPrecoTotal(Double precoTotal) {
-    this.precoTotal = precoTotal;
   }
 }

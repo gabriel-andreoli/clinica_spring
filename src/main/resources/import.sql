@@ -11,6 +11,18 @@ INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALU
 INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Ana Leticia', 'analeticia@gmail.com', 'F', 230, 'Pos-Graduacao');
 INSERT INTO profissionais(nome, email, sexo, preco_consulta, grau_formacao) VALUES ('Fernanda Tita', 'fernandatita@gmail.com', 'F', 310, 'Doutorado');
 
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (1, 3);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (2, 2);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (3, 5);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (4, 1);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (4, 3);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (4, 2);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (5, 3);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (6, 5);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (6, 4);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (6, 1);
+INSERT INTO profissional_area_atuacao(profissional_id, area_atuacao_id) VALUES (1, 4);
+
 INSERT INTO pacientes(nome, email, sexo) VALUES ('Gabriel', 'gabriel@gmail.com', 'M');
 INSERT INTO pacientes(nome, email, sexo) VALUES ('Rafael', 'rafael@gmail.com', 'M');
 INSERT INTO pacientes(nome, email, sexo) VALUES ('Roberto', 'roberto@gmail.com', 'M');

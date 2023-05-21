@@ -1,8 +1,11 @@
 package projeto.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "areas_atuacoes")
@@ -13,14 +16,14 @@ public class AreaAtuacao {
   private String descricao;
 
   @OneToMany(mappedBy = "id.areaAtuacao")
-  private ProfissionalAreaAtuacao profissionalAreaAtuacao;
+  private Set<ProfissionalAreaAtuacao> profissionalAreaAtuacoes = new HashSet<>();
 
   public AreaAtuacao(){}
 
-  public AreaAtuacao(Long id, String descricao, ProfissionalAreaAtuacao profissionalAreaAtuacao) {
+  public AreaAtuacao(Long id, String descricao, Set<ProfissionalAreaAtuacao> profissionalAreaAtuacao) {
     this.id = id;
     this.descricao = descricao;
-    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
+    this.profissionalAreaAtuacoes.addAll(profissionalAreaAtuacoes);
   }
 
   public Long getId() {
@@ -39,12 +42,9 @@ public class AreaAtuacao {
     this.descricao = descricao;
   }
 
-  public ProfissionalAreaAtuacao getProfissionalAreaAtuacao() {
-    return profissionalAreaAtuacao;
-  }
-
-  public void setProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao) {
-    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
+  @JsonIgnore
+  public Set<ProfissionalAreaAtuacao> getProfissionalAreaAtuacoes() {
+    return profissionalAreaAtuacoes;
   }
 
   @Override

@@ -30,9 +30,6 @@ public class Consulta implements Serializable {
   @Column(name = "data_consulta")
   private String dataConsulta;
 
-  @Column(name = "preco_total")
-  private Double precoTotal;
-
   public Consulta(){}
 
   public Consulta(Long id, Paciente paciente, Profissional profissional, TipoPagamento tipoPagamento, Double precoTotalConsulta, String dataConsulta) {
@@ -90,14 +87,6 @@ public class Consulta implements Serializable {
 
   public void setDataConsulta(String dataConsulta) {
     this.dataConsulta = dataConsulta;
-  }
-
-  public Double getPrecoTotal() {
-    return precoTotal;
-  }
-
-  public void setPrecoTotal(Double precoTotal) {
-    this.precoTotal = precoTotal;
   }
 
   @Override

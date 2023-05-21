@@ -23,16 +23,16 @@ public class Profissional extends Pessoa implements Serializable {
   private Set<Consulta> consultas = new HashSet<>();
 
   @OneToMany(mappedBy = "id.profissional")
-  private ProfissionalAreaAtuacao profissionalAreaAtuacao;
+  private Set<ProfissionalAreaAtuacao> profissionalAreaAtuacoes = new HashSet<>();
 
   public Profissional(){}
-  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao, Set<Consulta> consultas, ProfissionalAreaAtuacao profissionalAreaAtuacao) {
+  public Profissional(Long id, String nome, String email, String sexo, Double precoConsulta, String grauFormacao, Set<Consulta> consultas, Set<ProfissionalAreaAtuacao> profissionalAreaAtuacao) {
     super(nome, email, sexo);
     this.id = id;
     this.precoConsulta = precoConsulta;
     this.grauFormacao = grauFormacao;
-    this.consultas = consultas;
-    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
+    this.consultas.addAll(consultas);
+    this.profissionalAreaAtuacoes.addAll(profissionalAreaAtuacao);
   }
 
   public Long getId() {
@@ -59,12 +59,9 @@ public class Profissional extends Pessoa implements Serializable {
     this.grauFormacao = grauFormacao;
   }
 
-  public ProfissionalAreaAtuacao getProfissionalAreaAtuacao() {
-    return profissionalAreaAtuacao;
-  }
-
-  public void setProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao) {
-    this.profissionalAreaAtuacao = profissionalAreaAtuacao;
+  @JsonIgnore
+  public Set<ProfissionalAreaAtuacao> getProfissionalAreaAtuacoes() {
+    return profissionalAreaAtuacoes;
   }
 
   @JsonIgnore
@@ -74,6 +71,10 @@ public class Profissional extends Pessoa implements Serializable {
 
   public void adicionarConsulta(Consulta consulta){
     consultas.add(consulta);
+  }
+
+  public void adicionarProfissionalAreaAtuacao(ProfissionalAreaAtuacao profissionalAreaAtuacao){
+    profissionalAreaAtuacoes.add(profissionalAreaAtuacao);
   }
 
   @Override
