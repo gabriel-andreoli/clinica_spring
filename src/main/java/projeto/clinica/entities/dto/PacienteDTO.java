@@ -1,25 +1,19 @@
 package projeto.clinica.entities.dto;
 
-import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Paciente;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class PacienteDTO {
   private Long id;
   private String nome;
   private String email;
   private String sexo;
-  private Set<Consulta> consultas = new HashSet<>();
 
   public PacienteDTO(){}
-  public PacienteDTO(Paciente paciente){
+  public PacienteDTO(Paciente paciente) {
     this.id = paciente.getId();
     this.nome = paciente.getNome();
     this.email = paciente.getEmail();
     this.sexo = paciente.getSexo();
-    this.consultas.addAll(paciente.getConsultas());
   }
 
   public Long getId() {
@@ -52,9 +46,5 @@ public class PacienteDTO {
 
   public void setSexo(String sexo) {
     this.sexo = sexo;
-  }
-
-  public Set<Consulta> getConsultas() {
-    return consultas;
   }
 }

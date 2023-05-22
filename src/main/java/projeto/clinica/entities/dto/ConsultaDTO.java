@@ -6,6 +6,7 @@ public class ConsultaDTO {
   private Long id;
   private String nomeProfissional;
   private String nomePaciente;
+  private String emailPaciente;
   private String nomeTipoPagamento;
   private Double precoTotalConsulta;
   private String dataConsulta;
@@ -15,6 +16,7 @@ public class ConsultaDTO {
     this.id = consulta.getId();
     this.nomeProfissional = consulta.getProfissional().getNome();
     this.nomePaciente = consulta.getPaciente().getNome();
+    this.emailPaciente = consulta.getPaciente().getEmail();
     this.nomeTipoPagamento = consulta.getTipoPagamento().getDescricao();
     this.precoTotalConsulta = consulta.getPrecoTotalConsulta();
     this.dataConsulta = consulta.getDataConsulta();
@@ -42,6 +44,14 @@ public class ConsultaDTO {
 
   public void setNomePaciente(String nomePaciente) {
     this.nomePaciente = nomePaciente;
+  }
+
+  public String getEmailPaciente() {
+    return emailPaciente;
+  }
+
+  public void setEmailPaciente(String emailPaciente) {
+    this.emailPaciente = emailPaciente;
   }
 
   public String getNomeTipoPagamento() {
