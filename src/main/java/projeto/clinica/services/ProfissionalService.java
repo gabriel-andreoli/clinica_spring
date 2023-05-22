@@ -7,6 +7,7 @@ import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Paciente;
 import projeto.clinica.entities.Profissional;
 import projeto.clinica.entities.dto.PacienteDTO;
+import projeto.clinica.entities.dto.ProfissionalConsultaDTO;
 import projeto.clinica.entities.dto.ProfissionalDTO;
 import projeto.clinica.repositories.ProfissionalRepository;
 
@@ -28,6 +29,11 @@ public class ProfissionalService {
     Profissional profissional = profissionalRepository.findById(id)
             .orElseThrow(() -> new NoSuchElementException("Consulta não encontrada com o ID: " + id));
     return new ProfissionalDTO(profissional);
+  }
+
+  @Transactional(readOnly = true)
+  public ProfissionalConsultaDTO findByIdWithConsultas(Long id){
+    return new ProfissionalConsultaDTO(profissionalRepository.findById(id).get());
   }
 
   public ProfissionalDTO insert(Profissional profissional){
