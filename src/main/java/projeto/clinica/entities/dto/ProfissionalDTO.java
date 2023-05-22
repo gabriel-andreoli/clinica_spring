@@ -1,5 +1,6 @@
 package projeto.clinica.entities.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import projeto.clinica.entities.Profissional;
 import projeto.clinica.entities.ProfissionalAreaAtuacao;
 

@@ -5,6 +5,7 @@ import projeto.clinica.entities.Consulta;
 
 public class ConsultaDTO {
   private Long id;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String nomeProfissional;
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String nomePaciente;
