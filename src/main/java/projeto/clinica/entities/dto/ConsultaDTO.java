@@ -1,11 +1,14 @@
 package projeto.clinica.entities.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import projeto.clinica.entities.Consulta;
 
 public class ConsultaDTO {
   private Long id;
   private String nomeProfissional;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String nomePaciente;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String emailPaciente;
   private String nomeTipoPagamento;
   private Double precoTotalConsulta;

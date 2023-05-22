@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import projeto.clinica.entities.Consulta;
 import projeto.clinica.entities.Paciente;
 import projeto.clinica.entities.dto.ConsultaDTO;
+import projeto.clinica.entities.dto.PacienteConsultaDTO;
 import projeto.clinica.entities.dto.PacienteDTO;
 import projeto.clinica.repositories.PacienteRepository;
 
@@ -30,6 +31,11 @@ public class PacienteService {
     Paciente paciente = pacienteRepository.findById(id)
             .orElseThrow(() -> new NoSuchElementException("Consulta não encontrada com o ID: " + id));
     return new PacienteDTO(paciente);
+  }
+
+  @Transactional(readOnly = true)
+  public PacienteConsultaDTO findByIdWithConsultas(Long id){
+    return new PacienteConsultaDTO(pacienteRepository.findById(id).get());
   }
 
   @Transactional

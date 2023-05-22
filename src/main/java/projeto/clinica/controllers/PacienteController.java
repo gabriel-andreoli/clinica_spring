@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import projeto.clinica.entities.Paciente;
+import projeto.clinica.entities.dto.PacienteConsultaDTO;
 import projeto.clinica.entities.dto.PacienteDTO;
 import projeto.clinica.services.PacienteService;
 
@@ -24,6 +25,11 @@ public class PacienteController {
   @GetMapping(value = "/{id}")
   public PacienteDTO findById(@PathVariable Long id){
     return pacienteService.findById(id);
+  }
+
+  @GetMapping(value = "/{id}/consultas")
+  public PacienteConsultaDTO findByIdWithConsultas(@PathVariable Long id){
+    return pacienteService.findByIdWithConsultas(id);
   }
 
   @PostMapping
