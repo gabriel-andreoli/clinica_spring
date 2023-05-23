@@ -1,4 +1,5 @@
-Objeto de estudo com o objetivo de criar uma API de acordo com uma ideia que surgiu e que tive o prazer de construir!
+Projeto desenvolvido para prática e aprimoramento das minhas habilidades de desenvolvimento de API REST utilizando Java e Spring.
 
 DER do Banco de Dados para facilitar o desenvolvimento:
-![diagrama_clinica_spring](https://github.com/gabriel-andreoli/clinica_spring/assets/101675230/cb6e7b4b-67fd-4964-9337-1cd9f71ea943)
+
+![DER](https://github.com/gabriel-andreoli/clinica_spring/assets/101675230/bb38ab2b-ab80-4879-97e8-d7e4a88491bd)
